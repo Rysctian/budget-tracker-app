@@ -34,29 +34,29 @@ const chartConfig = {
 
 export function ExpenseChart() {
   return (
-    <Card className="flex flex-col border-[1px] border-neutral-300">
+    <div className="flex w-full px-4 rounded-2xl  justify-between max-h-[140px] border-[1px] border-neutral-300">
 
-      <CardHeader className="items-center pb-0">
+      <CardHeader className="items-left justify-center flex flex-col gap-2 w-[300px] ">
         <CardTitle>Income</CardTitle>
-        <CardDescription>Weekly - April 20-27</CardDescription>
+        <CardDescription>Weekly -  April 20-27</CardDescription>
       </CardHeader>
-      <CardContent className="flex-1 pb-0">
+      <CardContent >
         <ChartContainer
           config={chartConfig}
-          className="mx-auto aspect-square max-h-[250px]"
+          className="!aspect-square h-[120px]" 
         >
           <RadialBarChart
             data={chartData}
-            endAngle={100}
-            innerRadius={80}
-            outerRadius={140}
+            endAngle={120}
+            innerRadius={40}
+            outerRadius={80}
           >
             <PolarGrid
               gridType="circle"
               radialLines={false}
               stroke="none"
               className="first:fill-muted last:fill-background"
-              polarRadius={[86, 74]}
+              polarRadius={[50, 74]}
             />
             <RadialBar dataKey="expenses" background />
             <PolarRadiusAxis tick={false} tickLine={false} axisLine={false}>
@@ -73,7 +73,7 @@ export function ExpenseChart() {
                         <tspan
                           x={viewBox.cx}
                           y={viewBox.cy}
-                          className="fill-foreground text-4xl font-bold"
+                          className="fill-foreground text-2xl font-bold"
                         >
                           {chartData[0].expenses.toLocaleString()}
                         </tspan>
@@ -93,14 +93,14 @@ export function ExpenseChart() {
           </RadialBarChart>
         </ChartContainer>
       </CardContent>
-      <CardFooter className="flex-col gap-2 text-sm">
-        <div className="flex items-center gap-2 font-medium leading-none">
+      {/* <CardFooter className="flex-col gap-2 text-sm"> */}
+        {/* <div className="flex items-center gap-2 font-medium leading-none">
           Your Expenses up by 5.2% this month <TrendingUp className="h-4 w-4" />
-        </div>
+        </div> */}
         {/* <div className="leading-none text-muted-foreground">
           Showing total visitors for the last 6 months
         </div> */}
-      </CardFooter>
-    </Card>
+      {/* </CardFooter> */}
+    </div>
   )
 }
