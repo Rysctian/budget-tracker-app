@@ -14,6 +14,7 @@ import { DateRange } from "react-day-picker"
 
 import { Button } from "@/components/ui/button"
 import { Calendar } from "@/components/ui/calendar"
+import { useDateContext } from "@/context/DateContext"
 
 export default function CalendarComponent() {
   const today = new Date()
@@ -46,7 +47,7 @@ export default function CalendarComponent() {
     to: endOfYear(subYears(today, 1)),
   }
   const [month, setMonth] = useState(today)
-  const [date, setDate] = useState<DateRange | undefined>(last7Days)
+  const { date, setDate } = useDateContext();
 
   return (
     <div>
@@ -153,6 +154,7 @@ export default function CalendarComponent() {
             mode="range"
             selected={date}
             onSelect={(newDate) => {
+              console.log("NEW DATE: ", newDate)
               if (newDate) {
                 setDate(newDate)
               }

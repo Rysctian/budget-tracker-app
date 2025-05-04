@@ -34,7 +34,7 @@ const chartConfig = {
 
 export function ExpenseChart() {
   return (
-    <div className="flex w-full px-4 rounded-2xl  justify-between max-h-[140px] border-[1px] border-neutral-300">
+    <div className="flex w-full pl-2 pr-2 rounded-2xl  justify-between max-h-[140px] border-[1px] border-neutral-300">
 
       <CardHeader className="items-left justify-center flex flex-col gap-2 w-[300px] ">
         <CardTitle>Income</CardTitle>

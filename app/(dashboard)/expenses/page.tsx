@@ -1,6 +1,9 @@
 
 export default function ExpenseRoute() {
   return (
-    <div>ExpenseRoute</div>
+    <div>
+      <h1>Recent Cut Off</h1>
+
+    </div>
   )
 }

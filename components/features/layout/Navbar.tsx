@@ -11,7 +11,6 @@ const tabs = ["dashboard", "income", "expenses", "setup", "settings"]
 
 export default function Navbar() {
   const pathname = usePathname();
-  console.log(pathname)
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
   const [activeIndex, setActiveIndex] = useState(0)
   const [hoverStyle, setHoverStyle] = useState({})
@@ -19,6 +18,7 @@ export default function Navbar() {
   const [isDarkMode, setIsDarkMode] = useState(false)
   const tabRefs = useRef<(HTMLDivElement | null)[]>([])
   
+  // console.log(activeIndex)
   
   useEffect(() => {
     if (hoveredIndex !== null) {
@@ -67,12 +67,12 @@ export default function Navbar() {
   return (
     <div className={`flex justify-center top-0 fixed w-screen ${isDarkMode ? "dark bg-[#0e0f11]" : ""}`}>
       <Card
-        className={`w-full max-w-[1200px] h-[100px] border-none shadow-none relative flex items-center justify-center ${isDarkMode ? "bg-transparent" : ""}`}
+        className={`w-full  h-[100px] border-none shadow-none relative flex items-center justify-center ${isDarkMode ? "bg-transparent" : ""}`}
       >
         <Button variant="ghost" size="icon" className="absolute top-0 right-1" onClick={toggleDarkMode}>
           {isDarkMode ? <Sun className="h-[1.2rem] w-[1.2rem]" /> : <Moon className="h-[1.2rem] w-[1.2rem]" />}
         </Button>
-        <CardContent className="p-0">
+        <CardContent className="p-0  w-full">
           <div className="relative">
             {/* Hover Highlight */}
             <div
@@ -90,7 +90,7 @@ export default function Navbar() {
             />
 
             {/* Tabs */}
-            <div className="relative flex space-x-[6px] items-center">
+            <div className="relative flex w-full justify-evenly items-center">
               {tabs.map((tab, index) => (
                 <div
                   key={index}
@@ -103,7 +103,7 @@ export default function Navbar() {
                   onClick={() => setActiveIndex(index)}
                 >
                   <div className="text-sm font-[var(--www-mattmannucci-me-geist-regular-font-family)] leading-5 whitespace-nowrap flex items-center justify-center h-full">
-                  <Link href={`/${tab}`} className="capitalize">{tab}</Link>
+                  <Link href={ tab === "dashboard" ? "/" : `/${tab}`} className="capitalize">{tab}</Link>
                    
                   </div>
                 </div>

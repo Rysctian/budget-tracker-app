@@ -14,11 +14,14 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover"
-import CalendarComponent from "@/components/comp-507"
+import CalendarComponent from "@/app/(dashboard)/_components/Calendar"
+import { useDateContext } from "@/context/DateContext"
 
 export default function CalendarPicker() {
   const id = useId()
-  const [date, setDate] = useState<DateRange | undefined>()
+  const { date } = useDateContext();
+
+  console.log("CalendarPicker Date: ", date)
 
   return (
     <div>
